@@ -10,7 +10,7 @@
       "request": "launch",
       "program": "C:/Program Files/Dolphin/Dolphin.exe",
       "args": [
-        "${workspaceFolder}/dolphin-tests.dol"
+        "${workspaceFolder}/rWiiGame.dol"
       ],
       "stopAtEntry": false,
       "cwd": "${workspaceFolder}",

@@ -1,0 +1,37 @@
+{
+    "configurations": [
+        {
+            "name": "Wii",
+            "includePath": [
+                "${workspaceFolder}/source/",
+                "C:/devkitPro/libogc/include/",
+                "C:/devkitPro/portlibs/ppc/include/"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:/devkitPro/devkitPPC/bin/powerpc-eabi-gcc.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "${default}",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "${workspaceFolder}/**"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "compilerArgs": [
+                "-std=c++17",
+                "-Wall",
+                "-Wshadow",
+                "-Wpointer-arith",
+                "-Wcast-qual",
+                "-Wno-missing-braces"
+            ]
+        }
+    ],
+    "version": 4
+}
