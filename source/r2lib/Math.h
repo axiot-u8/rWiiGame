@@ -174,6 +174,15 @@ struct Vector2 {
 		return { x / l, y / l };
 	}
 
+	void normalise()
+	{
+		f32 l = length();
+		if (l != 0.0f) {
+			x /= l;
+			y /= l;
+		}
+	}
+
 	void lerp(const Vector2& dest, f32 t)
 	{
 		x = LERP(x, dest.x, t);

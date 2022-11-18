@@ -25,5 +25,7 @@ void BTNController::update(f32 stickAccelRate)
 	} else {
 		m_stickDir.y = 0;
 	}
+
+	m_stickDir.normalise();
 }
 } // namespace r2lib
