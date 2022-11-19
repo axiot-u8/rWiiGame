@@ -65,7 +65,6 @@ void MainProject::run_UI()
 {
 	GRRLIB_2dMode();
 	m_player.run_UI();
-	mainProj->debugPrint(32, 28, 12, 0xFFFFFFFF, "lpos %f %f", m_camera.m_lookPosition.x, m_camera.m_lookPosition.z);
 }
 
 void MainProject::debugPrint(u32 x, u32 y, u32 size, u32 colour, const char* fmt, ...)

@@ -14,8 +14,8 @@ using namespace r2lib;
 namespace Game {
 namespace config {
 // Speeds (% per frame)
-constexpr f32 kPlayerRotSpeed = (12.5f / 100.0f); // 12.5% per frame
-constexpr f32 kStickAccelRate = (20.0f / 100.0f);
+constexpr f32 kPlayerMoveSpeed = (2.5f / 100.0f);  // X units per frame
+constexpr f32 kPlayerRotSpeed  = (12.5f / 100.0f); // X% per frame
 } // namespace config
 
 Player::Player()
@@ -28,20 +28,12 @@ void Player::setup() { m_mesh.m_scale = { 0.25f, 0.25f, 0.25f }; }
 
 void Player::run_input()
 {
-	m_controller.update(config::kStickAccelRate);
+	m_controller.update(0.8f);
 
 	const Vector2& stickDir = m_controller.getStickDir();
-	if (stickDir.x < 0) {
-		m_mesh.m_position.x += 0.02f;
-	} else if (stickDir.x > 0) {
-		m_mesh.m_position.x -= 0.02f;
-	}
+	Vector3 moveVel(-stickDir.x * config::kPlayerMoveSpeed, m_velocity.y, stickDir.y * config::kPlayerMoveSpeed);
 
-	if (stickDir.y > 0) {
-		m_mesh.m_position.z += 0.02f;
-	} else if (stickDir.y < 0) {
-		m_mesh.m_position.z -= 0.02f;
-	}
+	m_mesh.m_position = m_velocity + getPosition() + moveVel;
 }
 
 void Player::run_gfx()
@@ -73,5 +65,6 @@ void Player::run_UI()
 {
 	const Vector2& stickDir = m_controller.getStickDir();
 	mainProj->debugPrint(32, 16, 12, 0xFFFFFFFF, "sdir %f %f fdir %f", stickDir.x, stickDir.y, m_faceDirection);
+	mainProj->debugPrint(32, 28, 12, 0xFFFFFFFF, "svel %f %f", m_velocity.x, m_velocity.z);
 }
 } // namespace Game

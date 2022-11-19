@@ -20,6 +20,7 @@ public:
 
 private:
 	r2lib::BTNController m_controller;
+	r2lib::Vector3 m_velocity;
 	f32 m_faceDirection;
 
 	// TODO: swap this out with a mesh
