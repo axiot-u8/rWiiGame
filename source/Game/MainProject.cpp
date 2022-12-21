@@ -1,4 +1,5 @@
-#include <stdarg.h>
+#include <cstdarg>
+#include <cstdio>
 
 #include "MainProject.h"
 #include "r2lib/Colour.h"
@@ -19,8 +20,9 @@ MainProject* mainProj;
 MainProject::MainProject()
     : m_camera(true, true, 0.01f, 1500.0f, 55)
     , m_debugFont(GRRLIB_LoadTTF(debug_font_ttf, debug_font_ttf_size))
-    , m_timer(0.0f)
     , m_floorPlane(floor_png)
+	, m_player()
+    , m_timer(0.0f)
 {
 	SYS_SetResetCallback([](u32, void*) { mainProj->stop(); });
 	SYS_SetPowerCallback([]() { mainProj->stop(); });
